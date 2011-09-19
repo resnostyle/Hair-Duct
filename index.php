@@ -1,584 +1,205 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title id="title">SABnzbd Config Mockup</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script src="js/tabs.js"></script> 
-        <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        
-    </head>
-    <body class="no-select ">
+<?php
 
-        <div class="fancy" id="sidebar">
-            <img alt="" src="images/hairduct.png" id="icon">
-            <div id="tab-container">
-                <div class="tab active" title="tab-1">Option 1</div>
-                <div class="tab" title="tab-2">Option 2</div>
-                <div class="tab" title="tab-3">Option 3</div>
-                <div class="tab" title="tab-4">Option 4</div>
-                <div class="tab" title="tab-5">Option 5</div>
-                <div class="tab" title="tab-6">Option 6</div>
-                <div class="tab" title="tab-7">Option 7</div>
-                <div class="tab" title="tab-8">Option 8</div>
-                <div class="tab" title="tab-9">Option 9</div>
-                <div class="tab" title="tab-10">Option 10</div>
-            </div>
-        </div>
-        <div id="content">
-            <div id="tab-1" class="tab-content show">
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ *
+ */
+	define('ENVIRONMENT', 'development');
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
 
-                <input id="session" name="session" value="abcdefghijklmnop" type="hidden">
-                <div id="config-components">
+if (defined('ENVIRONMENT'))
+{
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(E_ALL);
+		break;
+	
+		case 'testing':
+		case 'production':
+			error_reporting(0);
+		break;
 
-                  <div id="core-component-group1" class="component-group clearfix">
-                    <div class="component-group-desc">
-                      <h3>SABnzbd Web Server</h3>
-                      <p><b>Changes will require a SABnzbd restart!</b></p>
-                    </div>
-                    <fieldset class="component-group-list">
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="host">
-                          <span class="component-title">SABnzbd Host</span>
-                          <input name="host" id="host" value="localhost" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Host SABnzbd should listen on.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="port">
-                          <span class="component-title">SABnzbd Port</span>
-                          <input name="port" id="port" size="8" value="8081" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Port SABnzbd should listen on.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="username">
-                          <span class="component-title">SABnzbd Username</span>
-                          <input name="username" id="username" value="username" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Optional authentication username.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="password">
-                          <span class="component-title">SABnzbd Password</span>
-                          <input name="password" id="password" value="******" type="password">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Optional authentication password.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="web_dir">
-                          <span class="component-title">Web Interface</span>
-                          <select name="web_dir" id="web_dir">
-                          
-                            <option value="Plush - gold">Plush - gold</option>
-                          
-                            <option value="Classic - black">Classic - black</option>
-                          
-                            <option value="Classic - classic">Classic - classic</option>
-                          
-                            <option value="Classic - darkblue">Classic - darkblue</option>
-                          
-                            <option value="Classic - green">Classic - green</option>
-                          
-                            <option value="Classic - lightblue">Classic - lightblue</option>
-                          
-                            <option value="Classic - red">Classic - red</option>
-                          
-                            <option value="Classic - white-black">Classic - white-black</option>
-                          
-                            <option value="smpl - black">smpl - black</option>
-                          
-                            <option value="smpl - white" selected="selected">smpl - white</option>
-                          
-                          </select>
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Choose a skin.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="web_dir2">
-                          <span class="component-title">Secondary Web Interface</span>
-                          <select name="web_dir2" id="web_dir2">
-                          
-                            <option value="None">None</option>
-                          
-                            <option value="Plush - gold" selected="selected">Plush - gold</option>
-                          
-                            <option value="Classic - black">Classic - black</option>
-                          
-                            <option value="Classic - classic">Classic - classic</option>
-                          
-                            <option value="Classic - darkblue">Classic - darkblue</option>
-                          
-                            <option value="Classic - green">Classic - green</option>
-                          
-                            <option value="Classic - lightblue">Classic - lightblue</option>
-                          
-                            <option value="Classic - red">Classic - red</option>
-                          
-                            <option value="Classic - white-black">Classic - white-black</option>
+		default:
+			exit('The application environment is not set correctly.');
+	}
+}
 
-                            <option value="Mobile - dark">Mobile - dark</option>
-                          
-                            <option value="Mobile - light">Mobile - light</option>
-                          
-                            <option value="smpl - black">smpl - black</option>
-                          
-                            <option value="smpl - white">smpl - white</option>
-                          
-                          </select>
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Activate an alternative skin.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="language">
-                          <span class="component-title">Language</span>
-                          <select name="language" id="language" class="select">
-                            
-                              <option value="da">Dansk</option>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" folder.
+ * Include the path if the folder is not in the same  directory
+ * as this file.
+ *
+ */
+	$system_path = 'system';
 
-                              <option value="de">Deutsch</option>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * folder then the default one you can set its name here. The folder
+ * can also be renamed or relocated anywhere on your server.  If
+ * you do, use a full server path. For more info please see the user guide:
+ * http://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ *
+ */
+	$application_folder = 'application';
 
-                              <option value="en" selected="selected">English</option>
-                            
-                              <option value="fr">Fran�ais</option>
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here.  For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT:  If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller.  Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ *
+ */
+	// The directory name, relative to the "controllers" folder.  Leave blank
+	// if your controller is not in a sub-folder within the "controllers" folder
+	// $routing['directory'] = '';
 
-                              <option value="nl">Nederlands</option>
+	// The controller class file name.  Example:  Mycontroller
+	// $routing['controller'] = '';
 
-                              <option value="nb">Norsk bokm�l</option>
-
-                              <option value="ro">Rom�na</option>
-
-                              <option value="sv">Svenska</option>
-
-                          </select>
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Select a web interface language.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="apikey">
-                          <span class="component-title">API Key</span>
-                          <input id="apikey" value="abcdefghijklmnopqrstuv" class="apikey" type="text">
-                          <input aria-disabled="false" role="button" class="juiButton ui-button ui-widget ui-state-default ui-corner-all" value="Generate New Key" id="generate_new_apikey" rel="Are you sure?" type="button">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">This key will give 3rd party programs full access to SABnzbd.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="nzbkey">
-                          <span class="component-title">NZB Key</span>
-                          <input id="nzbkey" value="abcdefghijklmnopqrstuv" class="apikey" type="text">
-                          <input aria-disabled="false" role="button" class="juiButton ui-button ui-widget ui-state-default ui-corner-all" value="Generate New Key" id="generate_new_nzbkey" rel="Are you sure?" type="button">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">This key will allow 3rd party programs to add NZBs to SABnzbd.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="clearfix" for="disable_api_key">
-                          <input name="disable_api_key" id="disable_api_key" value="1" type="checkbox">
-                          <span class="component-title">Disable API-key</span>
-                          <span class="component-desc">Do not require the API key.</span>
-                        </label>
-                      </div>
-                    </fieldset>
-                  </div><!-- /component-group1 -->
-
-                  <div id="core-component-group2" class="component-group clearfix">
-                    <div class="component-group-desc">
-                      <h3>HTTPS Support</h3>
-                      <p><b>Changes will require a SABnzbd restart!</b></p>
-                    </div>
-                    <fieldset class="component-group-list">
-                      <div class="field-pair">
-                        <label class="clearfix" for="enable_https">
-                          <input name="enable_https" id="enable_https" value="1" type="checkbox">
-                          <span class="component-title">Enable HTTPS</span>
-                          <span class="component-desc">Enable accessing the interface from a HTTPS address.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="https_port">
-                          <span class="component-title">HTTPS Port</span>
-                          <input name="https_port" id="https_port" size="8" value="9090" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">If empty, the standard port will only listen to HTTPS.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="https_cert">
-                          <span class="component-title">HTTPS Certificate</span>
-                          <input name="https_cert" id="https_cert" value="server.cert" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">File name or path to HTTPS Certificate.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="https_key">
-                          <span class="component-title">HTTPS Key</span>
-                          <input name="https_key" id="https_key" value="server.key" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">File name or path to HTTPS Key.</span>
-                        </label>
-                      </div>
-                    </fieldset>
-                  </div><!-- /component-group2 -->
-
-                  <div id="core-component-group3" class="component-group clearfix">
-                    <div class="component-group-desc">
-                      <h3>Tuning</h3>
-                    </div>
-                    <fieldset class="component-group-list">
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="bandwidth_limit">
-                          <span class="component-title">Download Speed Limit</span>
-                          <input name="bandwidth_limit" id="bandwidth_limit" value="0" size="8" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Download rate limit (in KB/s - kilobytes per second).</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="cache_limit">
-                          <span class="component-title">Article Cache Limit</span>
-                          <input name="cache_limit" id="cache_limit" value="128M" size="8" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Cache articles in memory to reduce disk access.<br><i>In bytes, optionally follow with K,M,G. For example: "64M" or "128M"</i></span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="cleanup_list">
-                          <span class="component-title">Cleanup List</span>
-                          <input name="cleanup_list" id="cleanup_list" value="" size="40" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">List of file extensions that should be deleted after download.<br>For example: <b>.nfo</b> or <b>.nfo, .sfv</b></span>
-                        </label>
-                      </div>
-                    </fieldset>
-                  </div><!-- /component-group3 -->
-
-                  <div class="component-group-last clearfix">
-                    <div class="component-group-desc">
-                      <h3>&nbsp;</h3>
-                    </div>
-                    <fieldset class="component-group-list">
-                        <input type="button" class="setting element button" value="Save Changes">
-                        <input type="button" class="setting element button" value="Restart SABnzbd">
-                    </fieldset>
-                  </div><!-- /component-group -->
-
-                </div><!-- /config-components -->
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
 
-            </div>
-            <div id="tab-2" class="tab-content">
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ *
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
 
-                <input name="session" id="session" value="3dd7e1b2db55b47f5a3b5709aa9b268a" type="hidden">
 
-                <div id="config-components">
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-                  <div id="core-component-group1" class="component-group clearfix">
-                    <div class="component-group-desc">
-                      <h3>User Folders</h3>
-                      <p><small>Default Base Folder:<br>C:\Users\zoggy\Documents</small></p>
-                      <p><em>NOTE:</em> Folders will be created automatically when Saving. You may use absolute paths to save outside of the default folders.</p>
-                    </div>
-                    <fieldset class="component-group-list">
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="download_dir">
-                          <span class="component-title">Temporary Download Folder</span>
-                          <input size="50" name="download_dir" id="download_dir" value="downloads/incomplete" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Location to store unprocessed downloads.<br><i>Can only be changed when queue is empty.</i></span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="download_free">
-                          <span class="component-title">Minimum Free Space for Temporary Download Folder</span>
-                          <input size="8" name="download_free" id="download_free" value="" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Auto-pause when free space is beneath this value.<br><i>In bytes, optionally follow with K,M,G,T. For example: "800M" or "8G"</i></span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="complete_dir">
-                          <span class="component-title">Completed Download Folder</span>
-                          <input size="50" name="complete_dir" id="complete_dir" value="downloads/complete" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Location to store finished, fully processed downloads.<br><i>Can be overruled by user-defined categories.</i></span>
-                        </label>
-                      </div>
-                      
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="dirscan_dir">
-                          <span class="component-title">Watched Folder</span>
-                          <input size="50" name="dirscan_dir" id="dirscan_dir" value="" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Folder to monitor for .nzb files.<br><i>Also scans .zip .rar and .tar.gz archives for .nzb files.</i></span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="dirscan_speed">
-                          <span class="component-title">Watched Folder Scan Speed</span>
-                          <input size="8" name="dirscan_speed" id="dirscan_speed" value="5" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Number of seconds between scans for .nzb files.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="script_dir">
-                          <span class="component-title">Post-Processing Scripts Folder</span>
-                          <input size="50" name="script_dir" id="script_dir" value="C:\Program Files (x86)\SickBeard\autoProcessTV" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Folder containing user scripts for post-processing.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="email_dir">
-                          <span class="component-title">Email Templates Folder</span>
-                          <input size="50" name="email_dir" id="email_dir" value="" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Folder containing user-defined email templates.</span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="password_file">
-                          <span class="component-title">Password file</span>
-                          <input size="50" name="password_file" id="password_file" value="" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">File containing all passwords to be tried on encrypted RAR files.</span>
-                        </label>
-                      </div>
-                    </fieldset>
-                  </div><!-- /component-group1 -->
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
 
-                  <div id="core-component-group2" class="component-group clearfix">
-                    <div class="component-group-desc">
-                      <h3>System Folders</h3>
-                      <p><small>Default Base Folder:<br>C:\Users\zoggy\AppData\Local\sabnzbd</small></p>
-                    </div>
-                    <fieldset class="component-group-list">
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="admin_dir">
-                          <span class="component-title">Administrative Folder</span>
-                          <input size="50" name="admin_dir" id="admin_dir" value="admin" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Location for queue admin and history database.<br><i>Can only be changed when queue is empty.</i></span>
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc"><i>Data will <b>not</b> be moved. Requires SABnzbd restart!</i></span>
-                        </label>
-                      </div>
-                      <div class="field-pair alt">
-                        <label class="nocheck clearfix" for="log_dir">
-                          <span class="component-title">Log Folder</span>
-                          <input size="50" name="log_dir" id="log_dir" value="logs" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Location of log files for SABnzbd.<br><i>Requires SABnzbd restart!</i></span>
-                        </label>
-                      </div>
-                      <div class="field-pair">
-                        <label class="nocheck clearfix" for="nzb_backup_dir">
-                          <span class="component-title">.nzb Backup Folder</span>
-                          <input size="50" name="nzb_backup_dir" id="nzb_backup_dir" value="D:\Sickbeard_NZB" type="text">
-                        </label>
-                        <label class="nocheck clearfix">
-                          <span class="component-title">&nbsp;</span>
-                          <span class="component-desc">Location where .nzb files will be stored.</span>
-                        </label>
-                      </div>
-                    </fieldset>
-                  </div><!-- /component-group2 -->
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
 
-                  <div class="component-group-last clearfix">
-                    <div class="component-group-desc">
-                      <h3>&nbsp;</h3>
-                    </div>
-                    <fieldset class="component-group-list">
-                      <div class="left_links">
-                        <a id="save"><span class="config_sprite_container sprite_config_save">&nbsp;</span> Save Changes</a>
-                      </div>
-                    </fieldset>
-                  </div><!-- /component-group -->
+	if (realpath($system_path) !== FALSE)
+	{
+		$system_path = realpath($system_path).'/';
+	}
 
-                </div><!-- /config-components -->
+	// ensure there's a trailing slash
+	$system_path = rtrim($system_path, '/').'/';
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// The PHP file extension
+	// this global constant is deprecated.
+	define('EXT', '.php');
+
+	// Path to the system folder
+	define('BASEPATH', str_replace("\\", "/", $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', str_replace(SELF, '', __FILE__));
+
+	// Name of the "system folder"
+	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
 
-            </div>
-            <div id="tab-3" class="tab-content">
+	// The path to the "application" folder
+	if (is_dir($application_folder))
+	{
+		define('APPPATH', $application_folder.'/');
+	}
+	else
+	{
+		if ( ! is_dir(BASEPATH.$application_folder.'/'))
+		{
+			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+		}
 
-            </div>
-            <div id="tab-4" class="tab-content">
+		define('APPPATH', BASEPATH.$application_folder.'/');
+	}
 
-            </div>
-            <div id="tab-8" class="tab-content">
-                <h2>Blah</h2>
-                <table class="setting group">
-                    <tr>
-                        <td class="setting group-name">General</td>
-                        <td class="setting group-content">
-                            <div class="setting bundle popup-button">
-                                <div class="setting container popup-button">
-                                    <label class="setting label popup-button">Refresh Rate:</label>
-                                        <select class="setting element popup-button" style="margin-left: 39px; ">
-                                            <option value="0">Disabled</option>
-                                            <option value="10">10 seconds</option>
-                                            <option value="15">15 seconds</option>
-                                            <option value="30">30 seconds</option>
-                                            <option value="60">1 minute</option>
-                                            <option value="120">2 minutes</option>
-                                            <option value="300">5 minutes</option>
-                                            <option value="900">15 minutes</option>
-                                            <option value="1800">30 minutes</option>
-                                            <option value="3600">1 hour</option>
-                                            <option value="7200">2 hours</option>
-                                            <option value="14400">4 hours</option>
-                                        </select>
-                                </div>
-                            </div>
-                            <div class="setting bundle popup-button">
-                                <div class="setting container popup-button">
-                                    <label class="setting label popup-button">Notification Timeout:</label>
-                                        <select class="setting element popup-button">
-                                            <option value="0">Disabled</option>
-                                            <option value="10">10 seconds</option>
-                                            <option value="15">15 seconds</option>
-                                            <option value="20">20 seconds</option>
-                                            <option value="30">30 seconds</option>
-                                            <option value="45">45 seconds</option>
-                                            <option value="60">1 minute</option>
-                                            <option value="120">2 minutes</option>
-                                            <option value="300">5 minutes</option>
-                                            <option value="1800">30 minutes</option>
-                                            <option value="3600">1 hour</option>
-                                        </select>
-                                </div>
-                            </div>
-                            <div class="setting bundle popup-button">
-                                <div class="setting container popup-button">
-                                    <label class="setting label popup-button">Badge Count:</label>
-                                        <select class="setting element popup-button" style="margin-left: 39px; ">
-                                            <option value="missed">Missed</option>
-                                            <option value="today">Today</option>
-                                            <option value="soon">Soon</option>
-                                            <option value="later">Later</option>
-                                        </select>
-                                </div>
-                            </div>
-                            <div class="setting bundle popup-button">
-                                <div class="setting container popup-button">
-                                    <label class="setting label popup-button">Active Tab:</label>
-                                        <select class="setting element popup-button" style="margin-left: 54px; ">
-                                            <option value="auto">Remember</option>
-                                            <option value="missed">Missed</option>
-                                            <option value="today">Today</option>
-                                            <option value="soon">Soon</option>
-                                            <option value="later">Later</option>
-                                        </select>
-                                </div>
-                            </div>
-                            <div class="setting bundle checkbox">
-                                <div class="setting container checkbox">
-                                    <input id="grhlbc9l" class="setting element checkbox" type="checkbox" value="true"><label class="setting label checkbox" for="grhlbc9l">Enable Context Menu</label>
-                                </div>
-                            </div>
-                            <div class="setting bundle checkbox">
-                                <div class="setting container checkbox">
-                                    <input id="grhlbc9n" class="setting element checkbox" type="checkbox" value="true"><label class="setting label checkbox" for="grhlbc9n">Enable Notifications</label>
-                                </div>
-                            </div>
-                            <div class="setting bundle checkbox">
-                                <div class="setting container checkbox">
-                                    <input id="grhlbc9p" class="setting element checkbox" type="checkbox" value="true"><label class="setting label checkbox" for="grhlbc9p">Enable Automatic Authentication (insecure)</label>
-                                </div>
-                            </div>
-                            <div class="setting bundle button">
-                                <div class="setting container button">
-                                    <label class="setting label button">Click to reset all settings to default:</label><input class="setting element button" type="button" value="Reset">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <table class="setting group">
-                    <tr>
-                        <td class="setting group-name">External Images</td>
-                        <td class="setting group-content">
-                            <div class="setting bundle checkbox">
-                                <div class="setting container checkbox">
-                                    <input id="grhrf1wk" class="setting element checkbox" type="checkbox" value="true"><label class="setting label checkbox" for="grhrf1wk">Provider icon</label>
-                                </div>
-                            </div>
-                            <div class="setting bundle checkbox">
-                                <div class="setting container checkbox">
-                                    <input id="grhrf1wm" class="setting element checkbox" type="checkbox" value="true"><label class="setting label checkbox" for="grhrf1wm">Single Show</label>
-                                </div>
-                            </div>
-                            <div class="setting bundle checkbox">
-                                <div class="setting container checkbox">
-                                    <input id="grhrf1wo" class="setting element checkbox" type="checkbox" value="true"><label class="setting label checkbox" for="grhrf1wo">Showlist</label>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </body>
-</html>
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ *
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
+
+/* End of file index.php */
+/* Location: ./index.php */
