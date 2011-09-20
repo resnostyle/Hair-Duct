@@ -1,8 +1,5 @@
 <?php
 /* =============================
-Main Template File
-
-
 Hairduct - Your media condensed
 Copyright (C)  bryan 2011
 
@@ -19,13 +16,10 @@ Copyright (C)  bryan 2011
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =============================*/
-
-//$this->load->view('template/header.php');
-
-$this->load->view($main_content);
-
-//$this->load->view('template/footer.php');
-    
+?>
+        </body>
+</html>
+<?php 
  /*
-Filename: main.php
+Filename: footer.php
 */

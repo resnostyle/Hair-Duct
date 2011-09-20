@@ -1,8 +1,5 @@
 <?php
 /* =============================
-Main Template File
-
-
 Hairduct - Your media condensed
 Copyright (C)  bryan 2011
 
@@ -20,12 +17,23 @@ Copyright (C)  bryan 2011
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =============================*/
 
-//$this->load->view('template/header.php');
+class Setup extends CI_Controller {
 
-$this->load->view($main_content);
-
-//$this->load->view('template/footer.php');
-    
+	public function index(){
+    	
+		$data['main_content'] = 'setup/setup';
+    	$this->load->view('template/main', $data);
+	}
+	
+	public function save(){
+		$this->load->dbforge();
+	
+		if ($this->dbforge->create_database('hairduct.db'))
+			{
+    			echo 'Database created!';
+			}
+		}
+}
  /*
-Filename: main.php
+Filename: setup.php
 */

@@ -1,7 +1,24 @@
+<!-- 
+/* =============================
+Hairduct - Your media condensed
+Copyright (C)  bryan 2011
 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-        <div id="content">
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=============================*/
+-->
+    
+   
             <div id="tab-1" class="tab-content show">
 
                 <input id="session" name="session" value="abcdefghijklmnop" type="hidden">
@@ -91,31 +108,7 @@
                           <select name="web_dir2" id="web_dir2">
                           
                             <option value="None">None</option>
-                          
-                            <option value="Plush - gold" selected="selected">Plush - gold</option>
-                          
-                            <option value="Classic - black">Classic - black</option>
-                          
-                            <option value="Classic - classic">Classic - classic</option>
-                          
-                            <option value="Classic - darkblue">Classic - darkblue</option>
-                          
-                            <option value="Classic - green">Classic - green</option>
-                          
-                            <option value="Classic - lightblue">Classic - lightblue</option>
-                          
-                            <option value="Classic - red">Classic - red</option>
-                          
-                            <option value="Classic - white-black">Classic - white-black</option>
-
-                            <option value="Mobile - dark">Mobile - dark</option>
-                          
-                            <option value="Mobile - light">Mobile - light</option>
-                          
-                            <option value="smpl - black">smpl - black</option>
-                          
-                            <option value="smpl - white">smpl - white</option>
-                          
+                       
                           </select>
                         </label>
                         <label class="nocheck clearfix">
@@ -556,5 +549,9 @@
                 </table>
             </div>
         </div>
-    </body>
-</html>
+
+
+
+ /*
+Filename: home.php
+*/
