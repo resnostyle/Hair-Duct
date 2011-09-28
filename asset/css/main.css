@@ -399,8 +399,8 @@ textarea {
 /* ---------------------- */
 
 #sidebar {
-    background-color: #EDEDED;
-    background-image: -moz-linear-gradient(center top , #EDEDED 0%, #F5F5F5 100%);
+    background-color: #blue;
+    background-image: -moz-linear-gradient(center top , #blue 0%, #F5F5F5 100%);
     border-right: 1px solid #C2C2C2;
     bottom: 0;
     left: 0;

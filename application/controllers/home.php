@@ -25,18 +25,40 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		//do initial check of the database file existing
-		if (file_exists('application/hairduct.db')){
-			//file exists show the startup
-		}
-		else {
-			 redirect('/setup', 'refresh');
-			
-		}
+
+		$this->load->library('xmlrpc');
+		$this->load->library('xmlrpcs'); 
+/*@todo 		
+do intial check of database file existing
+	if the file doesnt exist redirect to "/setup"
+*/	
+
+		$this->load->library('xbmc-php');
 		
-				
-		//$data['main_content'] = 'home';
-        //$this->load->view('template/main', $data);
+		$this->load->helper('url');
+		$server_url = 'http://192.168.2.12';
+
+		//$this->load->library('xmlrpc');
+
+		$this->xmlrpc->server($server_url, 8080);
+		$this->xmlrpc->method('Greetings');
+
+		$request = array('How is it going?');
+		$this->xmlrpc->request($request);
+		
+		
+		$this->xmlrpc->server('http://192.168.2.12', 8080);
+		//$request = array(array('JSONRPC', 'string'), 'http://192.168.2.12:8080');
+		$this->xmlrpc->method(jsonrpc);
+		$this->xmlrpc->set_debug(TRUE);
+		$this->xmlrpc->request($request);
+		
+		
+		$this->xmlrpc->send_request();
+		$this->xmlrpc->display_response();
+		
+		$data['main_content'] = 'home';
+        $this->load->view('template/main', $data);
 		
 	}
 }

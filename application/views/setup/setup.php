@@ -64,7 +64,7 @@ $attributes_label = array(
    <?php echo form_label('Couchpotato IP Address', 'cpip'); ?>
    <?php echo form_input('cpip', ''); ?>
 
-	<?php echo form_reset('reset', 'Reset')?>
+   <?php echo form_reset('reset', 'Reset')?>
    <?php echo form_submit('mysubmit', 'Submit!');?>
 <?php 
  /*

@@ -20,8 +20,8 @@ Copyright (C)  bryan 2011
 echo doctype();
 $meta = array(
         array('name' => 'robots', 'content' => 'no-cache'),
-        array('name' => 'description', 'content' => 'My Great Site'),
-        array('name' => 'keywords', 'content' => 'love, passion, intrigue, deception'),
+        array('name' => 'description', 'content' => 'HairDuct, its awesome'),
+        array('name' => 'keywords', 'content' => ''),
         array('name' => 'robots', 'content' => 'no-cache'),
         array('name' => 'Content-type', 'content' => 'text/html; charset=utf-8', 'type' => 'equiv')
     );
@@ -45,13 +45,14 @@ echo meta($meta);
         <div class="fancy" id="sidebar">
             <img alt="" src="images/hairduct.png" id="icon">
             <div id="tab-container">
-                <div class="tab active" title="tab-1"><?php echo anchor('/', 'Home', 'title="Home"'); ?></div>
-                <div class="tab" title="tab-2"><?php echo anchor('settings', 'Settings', 'title="Settings"'); ?></div>
+                <div class="tab <?php echo ($this->uri->segment(1) == 'home') ? 'active' : ''  ?>" title="tab-1"><?php echo anchor('home', 'Home', 'title="Home"'); ?></div>
+                <div class="tab <?php echo ($this->uri->segment(1) == 'settings') ? 'active' : ''  ?>" title="tab-2"><?php echo anchor('settings', 'Settings', 'title="Settings"'); ?></div>
             </div>
         </div>
              <div id="content">
     	<?php 
 
+    	echo heading($this->uri->segment(1), 1);
  /*
 Filename: header.php
 */

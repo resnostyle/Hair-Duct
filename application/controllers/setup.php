@@ -26,12 +26,12 @@ class Setup extends CI_Controller {
 	}
 	
 	public function save(){
+		$database = 'hairduct.db';
+		$dir = './application/databases/';
+		$handle = fopen($database, 'w') or die('Cannot create or open your the db file');
+		fclose($handle);
 		$this->load->dbforge();
 	
-		if ($this->dbforge->create_database('hairduct.db'))
-			{
-    			echo 'Database created!';
-			}
 		}
 }
  /*
