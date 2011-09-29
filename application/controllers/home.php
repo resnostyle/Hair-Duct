@@ -17,45 +17,18 @@ Copyright (C)  bryan 2011
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =============================*/
-
+ /*@todo check for an file the indicates the widgets name and features for inclusin
+  * @todo do intial check of database file existing if the file doesnt exist redirect to "/setup"
+  */
 class Home extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 */
 	public function index()
 	{
 
-		$this->load->library('xmlrpc');
-		$this->load->library('xmlrpcs'); 
-/*@todo 		
-do intial check of database file existing
-	if the file doesnt exist redirect to "/setup"
-*/	
-
-		$this->load->library('xbmc-php');
+		$this->load->library('xbmcphp');
 		
-		$this->load->helper('url');
-		$server_url = 'http://192.168.2.12';
-
-		//$this->load->library('xmlrpc');
-
-		$this->xmlrpc->server($server_url, 8080);
-		$this->xmlrpc->method('Greetings');
-
-		$request = array('How is it going?');
-		$this->xmlrpc->request($request);
+			
 		
-		
-		$this->xmlrpc->server('http://192.168.2.12', 8080);
-		//$request = array(array('JSONRPC', 'string'), 'http://192.168.2.12:8080');
-		$this->xmlrpc->method(jsonrpc);
-		$this->xmlrpc->set_debug(TRUE);
-		$this->xmlrpc->request($request);
-		
-		
-		$this->xmlrpc->send_request();
-		$this->xmlrpc->display_response();
 		
 		$data['main_content'] = 'home';
         $this->load->view('template/main', $data);
