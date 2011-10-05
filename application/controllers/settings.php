@@ -19,6 +19,13 @@
  
      class Settings extends CI_Controller {
 
+     	public function Settings() {
+		parent::__construct();
+		$xml = simplexml_load_file($this->config->item('xml'));
+		//basic benchmarkings - set false when live
+		//$this->output->enable_profiler(TRUE);
+     	}
+		
 	/**
 	 * Index Page for this controller.
 	 */

@@ -1,6 +1,18 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
+ * -------------------------------
+ * XML FILE
+ * ------------------------------
+ * The XML file is the main configuration file for Hairduct, if it fails 
+ * Hairduct will likely explode in a fit of rage. 
+ * 
+ */
+
+$config['xml']= APPPATH.'/database/hairduct.xml';
+
+
+/*
 |--------------------------------------------------------------------------
 | Base Site URL
 |--------------------------------------------------------------------------

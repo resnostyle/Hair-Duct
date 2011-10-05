@@ -34,7 +34,7 @@ echo meta($meta);
         <?php 
         echo link_tag('asset/css/normalize.css');
         echo link_tag('asset/css/main.css');
-        echo link_tag('favicon.ico', 'shortcut icon', 'image/ico');
+       // echo link_tag('favicon.ico', 'shortcut icon', 'image/ico');
         ?>
   <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="asset/js/tabs.js"></script> --> 
@@ -45,14 +45,30 @@ echo meta($meta);
         <div class="fancy" id="sidebar">
             <img alt="" src="images/hairduct.png" id="icon">
             <div id="tab-container">
-                <div class="tab <?php echo ($this->uri->segment(1) == 'home') ? 'active' : ''  ?>" title="tab-1"><?php echo anchor('home', 'Home', 'title="Home"'); ?></div>
+                <div class="tab <?php echo ($this->uri->segment(1) == 'home') ? 'active' : ''  ?>" title="tab-1"><?php echo anchor('home', 'Home', 'title="Home"'); ?></div>                          
                 <div class="tab <?php echo ($this->uri->segment(1) == 'settings') ? 'active' : ''  ?>" title="tab-2"><?php echo anchor('settings', 'Settings', 'title="Settings"'); ?></div>
-            </div>
+             <?php 
+                $xml = simplexml_load_file($this->config->item('xml'));
+              		foreach ($xml as $key => $value){
+              			if ($key == 'links') {
+              				foreach ($value as $k => $v){ ?>
+              					<div class="tab <?php echo ($this->uri->segment(1) == $v) ? 'active' : ''  ?>" title="tab-2"><?php echo anchor($v, $v, 'title="'.$v.'"'); ?></div>
+              <?php  
+           				
+              				}
+              			}
+              			
+              		}
+                
+                
+                ?>           
+              		             
+           </div>
         </div>
              <div id="content">
-    	<?php 
-
-    	echo heading($this->uri->segment(1), 1);
+          <?php    
+              	
+             echo heading($this->uri->segment(1), 1);
  /*
 Filename: header.php
 */

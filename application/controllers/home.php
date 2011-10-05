@@ -22,14 +22,28 @@ Copyright (C)  bryan 2011
   */
 class Home extends CI_Controller {
 
-	public function index()
-	{
-
+	public function Home() {
+		parent::__construct();
+		//$this->output->enable_profiler(TRUE);
+		$xml = simplexml_load_file($this->config->item('xml'));
+		
+	}
+	
+	public function index()		{
+//@todo add some logic checking db for if this active
 		$this->load->library('xbmcphp');
 		
+		
 			
+	/*	$xbmcJson->NAMESPACE->COMMAND(
+            array(PARAM1 => VALUE1, PARAM2 => VALUE2,)
+        );
+        $xbmcJson->VideoLibrary->GetRecentlyAddedMovies();
+		
+		*/	
 		
 		
+		//loaded up template 
 		$data['main_content'] = 'home';
         $this->load->view('template/main', $data);
 		
